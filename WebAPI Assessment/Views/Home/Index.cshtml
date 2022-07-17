@@ -1,0 +1,43 @@
+﻿
+<br>
+<br>
+
+<form action="https://localhost:44312/api/text/post" method="post">
+
+    <label for="header">Enter Custom Header Page Size</label><br>
+    <input type="number" id="page_size" min="3" value="23"/>
+    <br><br>
+    <label for="jsonbody">Enter JSON Here</label><br>
+    <textarea type="text" id="json_textfield" rows="5" cols="50">{"ListOfWords": ["Dog","is","barking","outside.","People","are","busy","today."]}</textarea>
+    <input type="button" value="Submit" onclick="sendJson();">
+
+</form> 
+
+
+
+<script>
+    function sendJson() {
+
+        var page_size = document.getElementById("page_size").value;
+        var JSONText = document.getElementById("json_textfield").value;
+        alert(JSONText);
+        var url = "https://localhost:44312/api/text/post";
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", url);
+
+        xhr.setRequestHeader("Accept", "application/json");
+        xhr.setRequestHeader("Content-Type", "application/json");
+        xhr.setRequestHeader("Custom-Header", page_size);
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4) {
+                console.log(xhr.status);
+                console.log(xhr.responseText);
+            }
+        };
+
+        var data = JSONText;
+
+        xhr.send(data);
+    }
+
+</script>
