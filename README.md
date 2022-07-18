@@ -11,5 +11,5 @@ Requst POST
 
   Requst GET
   ```
-  https://localhost:44312/api/text/post
+  https://localhost:44312/api/text/get
   ```
