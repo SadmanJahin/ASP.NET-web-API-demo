@@ -2,16 +2,41 @@
 <br>
 <br>
 
-<form action="https://localhost:44312/api/text/post" method="post">
+<div style="margin:auto;">
 
-    <label for="header">Enter Custom Header Page Size</label><br>
-    <input type="number" id="page_size" min="3" value="23"/>
-    <br><br>
-    <label for="jsonbody">Enter JSON Here</label><br>
-    <textarea type="text" id="json_textfield" rows="5" cols="50">{"ListOfWords": ["Dog","is","barking","outside.","People","are","busy","today."]}</textarea>
-    <input type="button" value="Submit" onclick="sendJson();">
+    <div style="float: left; width: 500px; margin-left: 140px; margin-bottom: 50px; ">
+        <form action="https://localhost:44312/api/text/post" method="post">
+            <label for="header"><h4>POST Request</h4></label><br>
+            <label for="header">Enter Custom Header Page Size</label><br>
+            <input type="number" id="page_size" min="3" value="23" />
+            <br><br>
+            <label for="jsonbody">Enter JSON Here</label><br>
+            <textarea type="text" id="json_textfield" rows="5" cols="50">{"ListOfWords": ["Dog","is","barking","outside.","People","are","busy","today."]}</textarea>
+            <input type="button" value="Submit" onclick="sendJson();">
 
-</form> 
+            <br>
+            <label for="status" id="status_code1">Status Code: </label>
+
+        </form>
+    </div>
+
+
+    <div style="float: left; width: 500px;">
+        <form action="https://localhost:44312/api/text/post" method="get">
+            <label for="header"><h4>GET Request</h4></label><br>
+            <label for="header">JSON Response</label><br> <br>
+            <textarea type="text" id="line_textfield" rows="5" cols="50" disabled></textarea>
+            <input type="button" value="Get" onclick="getLine();">
+
+            <br>
+            <label for="status" id="status_code2">Status Code: </label>
+
+        </form>
+    </div>
+
+
+
+</div>
 
 
 
@@ -20,7 +45,7 @@
 
         var page_size = document.getElementById("page_size").value;
         var JSONText = document.getElementById("json_textfield").value;
-        alert(JSONText);
+      
         var url = "https://localhost:44312/api/text/post";
         var xhr = new XMLHttpRequest();
         xhr.open("POST", url);
@@ -32,6 +57,7 @@
             if (xhr.readyState === 4) {
                 console.log(xhr.status);
                 console.log(xhr.responseText);
+                document.getElementById("status_code1").innerHTML = "Status Code: " + xhr.status;
             }
         };
 
@@ -39,5 +65,31 @@
 
         xhr.send(data);
     }
+
+    function getLine() {
+        var url = "https://localhost:44312/api/text/get";
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", url);
+
+        xhr.setRequestHeader("Accept", "application/json");
+        xhr.setRequestHeader("Content-Type", "application/json");
+       
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4) {
+                console.log(xhr.status);
+                console.log(xhr.responseText);
+                document.getElementById("status_code2").innerHTML = "Status Code: " + xhr.status;
+                document.getElementById("line_textfield").value = xhr.responseText;
+            }
+        };
+
+       
+
+        xhr.send();
+    }
+
+    
+
+
 
 </script>

@@ -6,23 +6,23 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Results;
+using WebAPI_Assessment.Models;
 
 namespace WebAPI_Assessment.Controllers
 {
     public class TextController : ApiController
     {
-        // GET api/<controller>
-        [HttpGet]
+
+        DatabaseContext db = new DatabaseContext();
+       // GET api/<controller>
+       [HttpGet]
         public object get()
         {
-            return new
-            {
-                Name = "Alice",
-                Age = 23,
-            };
+            return db.Texts.OrderByDescending(p => p.id).Select(p => new { p.Line })
+                       .FirstOrDefault(); 
         }
         [HttpPost]
-        public string post(JObject json)
+        public HttpResponseMessage post(JObject json)
         {
             var re = Request;
             var headers = re.Headers;
@@ -54,10 +54,26 @@ namespace WebAPI_Assessment.Controllers
                 }
             }
 
+            try
+            {
+                Text text = new Text();
+                text.Line = new string(final_line.ToArray());
+                db.Texts.Add(text);
+                db.SaveChanges();
+                HttpResponseMessage response = new HttpResponseMessage(HttpStatusCode.Created);
+                return response;
+            }
+            catch
+            {
+                HttpResponseMessage response = new HttpResponseMessage(HttpStatusCode.InternalServerError);
+                return response;
+            }
 
+           
+            
             //return Content((HttpStatusCode)201, "OK");
 
-            return new string(final_line.ToArray());
+            
         }
         // POST api/<controller>
        

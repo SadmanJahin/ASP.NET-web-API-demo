@@ -83,3 +83,9 @@ C:\Users\13343\source\repos\WebAPI Assessment\WebAPI Assessment\obj\Debug\WebAPI
 C:\Users\13343\source\repos\WebAPI Assessment\WebAPI Assessment\obj\Debug\WebAPI Assessment.csproj.CopyComplete
 C:\Users\13343\source\repos\WebAPI Assessment\WebAPI Assessment\obj\Debug\WebAPI Assessment.dll
 C:\Users\13343\source\repos\WebAPI Assessment\WebAPI Assessment\obj\Debug\WebAPI Assessment.pdb
+C:\Users\13343\source\repos\WebAPI Assessment\WebAPI Assessment\bin\EntityFramework.dll
+C:\Users\13343\source\repos\WebAPI Assessment\WebAPI Assessment\bin\EntityFramework.SqlServer.dll
+C:\Users\13343\source\repos\WebAPI Assessment\WebAPI Assessment\bin\EntityFramework.xml
+C:\Users\13343\source\repos\WebAPI Assessment\WebAPI Assessment\bin\EntityFramework.SqlServer.xml
+C:\Users\13343\source\repos\WebAPI Assessment\WebAPI Assessment\obj\Debug\WebAPI_Assessment.Migrations.initial.resources
+C:\Users\13343\source\repos\WebAPI Assessment\WebAPI Assessment\obj\Debug\WebAPI Assessment.csproj.GenerateResource.cache
