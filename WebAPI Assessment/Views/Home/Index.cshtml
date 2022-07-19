@@ -39,14 +39,15 @@
 </div>
 
 
-
 <script>
+
+    var HOST = window.location.host;
     function sendJson() {
 
         var page_size = document.getElementById("page_size").value;
         var JSONText = document.getElementById("json_textfield").value;
       
-        var url = "https://localhost:44312/api/text/post";
+        var url = "https://"+HOST+"/api/text/post";
         var xhr = new XMLHttpRequest();
         xhr.open("POST", url);
 
@@ -67,7 +68,7 @@
     }
 
     function getLine() {
-        var url = "https://localhost:44312/api/text/get";
+        var url = "https://" + HOST + "/api/text/get";
         var xhr = new XMLHttpRequest();
         xhr.open("GET", url);
 
