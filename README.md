@@ -1,7 +1,9 @@
 # ASP.NET-web-API-demo
 #### Web API Assignment
 Author: Sadman Jahin
+<br>
 Post and Get Request Send with XHTTP from Index.cshtml, Api Controller handles requests.
+<br>
 API Endpoints:
 1. /post
 a. Request type: POST
