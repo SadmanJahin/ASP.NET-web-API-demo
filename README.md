@@ -4,13 +4,14 @@ Author: Sadman Jahin
 <br>
 Post and Get Request Send with XHTTP from Index.cshtml, Api Controller handles requests.
 <br>
-API Endpoints:
-1. /post
+#### API Endpoints: 
+1. /post <br>
 a. Request type: POST
 b. Request header: page-size
 c. Data: List of string
-d. Response status code: 201
-2. /get
+d. Response status code: 201 <br>
+
+2. /get <br>
 a. Request type: GET
 b. Response: List of lines
 c. Response status code: 200
