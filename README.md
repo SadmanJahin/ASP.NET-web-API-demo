@@ -32,3 +32,8 @@ Requst POST
    ```
   https://localhost:*****/api/text/get
   ```
+  
+  #### Preview
+  
+  ![image](https://user-images.githubusercontent.com/54625061/179644604-9976d14c-d17a-4193-b228-ed409b682640.png)
+
