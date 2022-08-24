@@ -4,6 +4,12 @@ Author: Sadman Jahin
 <br>
 Post and Get Request Send with XHTTP from Index.cshtml, Api Controller handles requests.
 <br>
+#### Migrations
+Open Package Manager
+<br>
+PM> Enable-Migrations
+<br>
+PM> Add-Migration
 #### API Endpoints: 
 1. /post <br>
 a. Request type: POST
